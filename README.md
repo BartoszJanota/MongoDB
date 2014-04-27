@@ -17,6 +17,31 @@ Note: The entire course is included in this repository. After clone you can work
 Introduction
 ----
 
+### Basic facts
+
+Some facts about MongoDB:
+* cross-platform document-oriented database system
+* world's most popular NoSQL database
+* 
+
+What does it all mean?
+
+### NoSQL
+
+Traditional database systems use *relational model*:
+* data organized in *tables*
+* each table has a set of *fields* - the structure of each record in table is set
+* relationships between tables make complex queries possible
+* queries to most relational databases are made using SQL.
+
+MongoDB uses a *document-oriented* approach:
+* data is kept in *documents*, organized in *collections*
+* collections do not enforce document structure
+* user can choose a data model that satisfies his needs best
+  * document relationships
+  * document embedding 
+* no structure enforcement - no *join* queries
+
 *TO DO*:
 * MnogoDB intro
 * NoSql
@@ -38,6 +63,9 @@ SQL vs. NoSQL
 
 Where to NoSQL
 ----
+
+The greatest strength of MongoDB's document-based approach is its flexibility. Each data item can have its own structure, which makes representing real-life objects with ease.  
+Imagine a database holding 
 
 *TO DO*:
 * simple examples: student with a bag and books, a pencilcase (with a rubber and a pencil) and etc. inside and another one with a notebook bag only - no database schema etc., and very different models of one subject.
