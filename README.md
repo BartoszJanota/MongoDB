@@ -153,9 +153,53 @@ Your first Collection and Inserts
 
 In this section you will create your first Documents and Insert them into your database.
 
-* database connect
-* some inserts
-* some queries
+###First Collection Insert
+
+Assuming you are still connected to your databas (check `db`, if not, connect your database with `use mynewdb`) you can now prepare some Documents and Insert them.
+
+As we said before, `mongo` let you use JavaScript, so now we can create some variables:
+
+```javascript
+tutorial = {name: "my tutorial", subject: "mongodb"}
+card = {job: "doctor", seniority: 3}
+```
+As we have these two documents, we want to store them now, but wait, we still have no collections. Solution is easier than you think, just type:
+
+```sh
+mynewdb.testCollection.insert( tutorial )
+mynewdb.testCollection.insert( card )
+``` 
+
+These instructions creates the testCollection collection and inserts our documents into, please remember, your database `mynewdb` was phisically created only when you have inserted something into!
+
+It is everything you need to store your data. Please notice, above documents are totally different, their structure is different and have nothing in common, nevertheless, you can just insert them and store in one place (collection). Now you can phisically meet the MongoDB power.
+
+###Through the database
+
+Now as you have inserted some data you can try to list it.
+
+```sh
+show collections
+```
+
+That instruction will show you all collections you declared in your current database. The only collection in your system is `testCollection`. All `monogod` databases have either `system.indexes` default collection.
+
+You found out that your `testCollection` exists, so now, you can check its content:
+
+```sh
+mynewdb.testCollection.find()
+```
+
+You should see an ouput like this:
+
+*TO DO*
+* run an above example
+
+###Specified queries
+
+*TO DO*
+* another insert
+* conditional select
 
 Webservice configuration
 ----
