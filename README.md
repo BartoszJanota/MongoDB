@@ -12,6 +12,8 @@ Firstly we will satisfy you with a bit of theory and then we will show you how t
 
 Experience the power and simplicity of MongoDB!
 
+Note: The entire course is included in this repository. After clone you can work locally, please follow REAMDE file :).
+
 Introduction
 ----
 
@@ -62,16 +64,67 @@ OK, let's do it!
 MongoDB configuration
 ----
 
-*TO DO*
-* system requirements
-* download 
-* install
-* database connect
+Now we will install MongoDB on your computer. Please be sure you are connected to the internet.
 
-Commandline integration
+###System requirements
+
+We suggest working on a UNIX like system. Following instructions are related to Linux distribution (Ubuntu 12.10).
+Please do not panic if you have any other operational system, MongoDB can be hosted enywhere, so besides installing process, every part of our course can be completed on your machine.
+
+Firstly you need to download and install MongoDB. You can use `apt-get` tool or download binaries driectly from [MongoDB Downloads]. We prefer the first procedure.
+```sh
+sudo apt-get install mongodb
+```
+After that you should have totally prepared environment. So easy, isn't it?
+Now we will show you how to use `mongo` shell - default MongoDB distribution shell.
+
+###`mongo` shell
+
+`mongo` is a powerful tool, it enables access to JavaScript languafge environment and a full database interface for MongoDB. To perform next steps we assume you have installed MongoDB (see [installing MongoDB](https://github.com/BartoszJanota/MongoDB/edit/master/README.md#system-requirements))
+
+Now you will connect to `mongod` using `mongo` shell.
+
+In your command prompt start `mongo`. Not suprisingly, please type:
+
+```sh
+mongo
+```
+
+You should be connected to the `mongod` database server listening on port *27017* on the *localhost* interface by default.
+
+Now you can see which database you are connected to:
+
+```sh
+db
+```
+
+`mongod` uses `test` as a default database.
+
+You can list your databases with:
+
+```sh
+show dbs
+```
+Please, create and swich to a new database:
+
+```sh
+use mynewdb
+```
+
+Now you can check that you created a proper database by typing:
+```sh
+sb
+```
+
+It will print your current session database context. 
+
+What is interesting, retyping `show dbs` will show you nothing more than the last time, so why? Answer is simple, MongoDB will not persist your database until you insert some data into.
+
+Your first Collection and Inserts
 ----
 
-*TO DO*
+In this section you will create your first Documents and Insert them into your database.
+
 * database connect
 * some inserts
 * some queries
@@ -122,6 +175,7 @@ MIT - free to use :)!
 by [Bartosz Janota](mailto:bartosz.janota@gmail.com) and [Piotr Mikoda](mailto:piotr.mikoda@gmail.com)
 
 [MongoDB Home]:https://www.mongodb.org/
+[MongoDB Downloads]:http://www.mongodb.org/downloads
 [CWBUECHELER]:http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
 
 
