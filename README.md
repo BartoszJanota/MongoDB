@@ -45,6 +45,7 @@ MongoDB uses a *document-oriented* approach:
 ### Performance, availability, scalability
 
 MongoDB includes mechanisms for increasing the database's performance and availability even in large systems. These are:
+
 1. Replication
  * multiple copies of the database on different servers
  * provides data redundancy -> security
