@@ -54,12 +54,6 @@ MongoDB includes mechanisms for increasing the database's performance and availa
  * provides *horizontal scaling* - divides the data set across multiple servers (*shards*)
  * reduces the number of operations and data stored per shard
 
-
-*TO DO*:
-* querying,
-* map-reduce
-* etc.
-
 SQL vs. NoSQL
 ---
 
