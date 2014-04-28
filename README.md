@@ -22,7 +22,7 @@ Introduction
 Some facts about MongoDB:
 * cross-platform document-oriented database system
 * world's most popular NoSQL database
-* 
+* fast, scalable, available
 
 What does it all mean?
 
@@ -42,12 +42,19 @@ MongoDB uses a *document-oriented* approach:
   * document embedding 
 * no structure enforcement - no *join* queries
 
+### Performance, availability, scalability
+
+MongoDB includes mechanisms for increasing the database's performance and availability even in large systems. These are:
+1. Replication
+ * multiple copies of the database on different servers
+ * provides data redundancy -> security
+ * increases availability - read operations can be performed on any replica
+2. Sharding
+ * provides *horizontal scaling* - divides the data set across multiple servers (*shards*)
+ * reduces the number of operations and data stored per shard
+
+
 *TO DO*:
-* MnogoDB intro
-* NoSql
-* document-oriented storage
-* repliacation, scalability, availibility
-* auto-sharding
 * querying,
 * map-reduce
 * etc.
@@ -55,30 +62,30 @@ MongoDB uses a *document-oriented* approach:
 SQL vs. NoSQL
 ---
 
-*TO DO*:
-* SQL
-* NoSQL
-* diff
-* why NoSQL is still better
+### Where to NoSQL
 
-Where to NoSQL
-----
 
 The greatest strength of MongoDB's document-based approach is its flexibility. Each data item can have its own structure, which makes representing real-life objects with ease.  
-Imagine a database holding 
+Imagine a database storing information about school students and their equipment. Although some basic information about students has similar structure (e. g. name, year etc.), the students' equipment may vary. One student may have a school bag full of notebooks, a pencil case with pens and pencils etc., and another may choose to bring just his laptop. In a relation-based approach we would have to use many tables with many colums to account for all possibilities - in MongoDB, we don't have to worry about anything - the data can have any form we want!
 
-*TO DO*:
-* simple examples: student with a bag and books, a pencilcase (with a rubber and a pencil) and etc. inside and another one with a notebook bag only - no database schema etc., and very different models of one subject.
-* easy general SELECT with no detailed conditions
-* etc.
+### Where not to NoSQL
 
-Where not to NoSQL
----
+NoSQL databases, including MongoDB, give up on the advantages of the rigid structure of the relational databases in the name of flexibility. MongoDB does not support queries to more than one collection at once (similar to SQL JOIN queries). All MongoDB operations are atomic only per document - there is no way to enforce transactionality. It means it cannot be used in applications which require these features.
 
-*TO DO*:
-* when SELECTing very specified queries or SELECTs with joins
-* model architecture that must be mapped on tables
-* anything else?
+Some technical details
+----
+
+### Data representation
+
+As mentioned before, MongoDB stores data as *documents*, organized loosely in *collections*. Every document is stored in database in BSON format. *BSON* = binary + JSON - binary representation of extendced JSON used by MongoDB.
+
+### Queries
+
+Queries for MongoDB are written in JavaScript and give results in JSON format (query results are, in fact, documents themselves). This allows for seamless integration with applications written in JavaScript.
+
+Each query is conducted on a given collection. There is no way to refer to more than one collection in one query - to achieve a fuctionality similar to SQL JOIN one has to make more than one query to the database.
+
+Write operations are atomic only with respect to a single document. It means that it is impossible to enforce full transactionality in MongoDB. It can be viewed as a trade-off between 
 
 Let's code
 ----
