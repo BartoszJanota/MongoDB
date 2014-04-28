@@ -86,7 +86,13 @@ Queries for MongoDB are written in JavaScript and give results in JSON format (q
 
 Each query is conducted on a given collection. There is no way to refer to more than one collection in one query - to achieve a fuctionality similar to SQL JOIN one has to make more than one query to the database.
 
-Write operations are atomic only with respect to a single document. It means that it is impossible to enforce full transactionality in MongoDB. It can be viewed as a trade-off between 
+Write operations are atomic only with respect to a single document. It means that it is impossible to enforce full transactionality in MongoDB. 
+
+#### Aggregation
+
+MongoDB also provides a rich set of *aggregation operations* that examine and perform calculations on the data sets. There are two basic aggregation mechanisms:
+* **aggregation pipeline** - multi-stage pipeline, transforming the documents into aggregated results using a chain of *pipeline operators*
+* **map-reduce** - more flexible but more complex approach, using JavaScript functions for map and reduce stages of aggregation
 
 Let's code
 ----
