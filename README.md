@@ -54,6 +54,12 @@ MongoDB includes mechanisms for increasing the database's performance and availa
  * provides *horizontal scaling* - divides the data set across multiple servers (*shards*)
  * reduces the number of operations and data stored per shard
 
+
+*TO DO*:
+* querying,
+* map-reduce
+* etc.
+
 SQL vs. NoSQL
 ---
 
@@ -80,13 +86,7 @@ Queries for MongoDB are written in JavaScript and give results in JSON format (q
 
 Each query is conducted on a given collection. There is no way to refer to more than one collection in one query - to achieve a fuctionality similar to SQL JOIN one has to make more than one query to the database.
 
-Write operations are atomic only with respect to a single document. It means that it is impossible to enforce full transactionality in MongoDB. 
-
-#### Aggregation
-
-MongoDB also provides a rich set of *aggregation operations* that examine and perform calculations on the data sets. There are two basic aggregation mechanisms:
-* **aggregation pipeline** - multi-stage pipeline, transforming the documents into aggregated results using a chain of *pipeline operators*
-* **map-reduce** - more flexible but more complex approach, using JavaScript functions for map and reduce stages of aggregation
+Write operations are atomic only with respect to a single document. It means that it is impossible to enforce full transactionality in MongoDB. It can be viewed as a trade-off between 
 
 Let's code
 ----
@@ -174,8 +174,8 @@ card = {job: "doctor", seniority: 3}
 As we have these two documents, we want to store them now, but wait, we still have no collections. Solution is easier than you think, just type:
 
 ```sh
-mynewdb.testCollection.insert( tutorial )
-mynewdb.testCollection.insert( card )
+db.testCollection.insert( tutorial )
+db.testCollection.insert( card )
 ``` 
 
 These instructions creates the testCollection collection and inserts our documents into, please remember, your database `mynewdb` was phisically created only when you have inserted something into!
@@ -195,19 +195,68 @@ That instruction will show you all collections you declared in your current data
 You found out that your `testCollection` exists, so now, you can check its content:
 
 ```sh
-mynewdb.testCollection.find()
+db.testCollection.find()
 ```
 
 You should see an ouput like this:
 
-*TO DO*
-* run an above example
+```sh
+{ "_id" : ObjectId("535e44725dd7f6c31cd0d424"), "name" : "my tutorial", "subject" : "mongodb" }
+{ "_id" : ObjectId("535e44725dd7f6c31cd0d425"), "job" : "doctor", "seniority" : 3 }
+```
+
+As you can see, all inserted documents must have their own, unique `_id` field.
 
 ###Specified queries
 
-*TO DO*
-* another insert
-* conditional select
+In the last section you have learned how to insert some data into you database. Now we will do some more difficult operations.
+
+As we operate in JavaScript environment, we can do:
+
+```javascript
+for (var i = 3; i <= 5; i++) db.testCollection.insert( {job: "teacher", seniority: i} )
+```
+
+Now we have a bigger collection, so we can browse it.
+
+###The Cursor
+
+Every `mongo` query returns a cursor object that contains the results of the query.
+If you have followed our course properly, you should have 5 documents inserted now.
+
+To see how cursor works just try:
+
+```sh
+var cursor = db.testCollection.find()
+```
+
+Now you can use `cursor` as a simple array:
+
+```sh
+printjson( cursor [ 3 ])
+```
+
+It should return the 3rd document
+
+###Search criteria
+
+When you wanto find specific documents you can just add additional criteria:
+
+```sh
+db.testCollection.find( { seniority: {$gt : 3} } )
+```
+
+or
+
+```sh
+db.testCollection.find( { seniority: 3 } )
+```
+
+You should see some results according to the given criteria.
+Try some more spohisticated criteria! Check more at MongoDB [find()](http://docs.mongodb.org/manual/reference/method/db.collection.find/) reference.
+
+Now you are able to create your own databases and collections. You can insert some documents and browse them, we encourage you to practise more and more. In the next section you will see how to use MongoDB according to third-party libraries such as Node.js or so.
+
 
 Webservice configuration
 ----
