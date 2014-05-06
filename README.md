@@ -38,11 +38,12 @@ MongoDB uses a *document-oriented* approach:
 * data is kept in *documents*, organized in *collections*
 * collections do not enforce document structure
 * user can choose a data model that satisfies his needs best
-  * document relationships - document contains a reference to another document
-  * document embedding - documents are nested within each other
+  * **normalized data model** - document relationships - document contains a reference to another document
+  * **denormalized data model** - document embedding - documents are nested within each other
 * no structure enforcement - no *join* queries
 
-
+![Normalized data model](http://docs.mongodb.org/manual/_images/data-model-normalized.png)
+![Denormalized data model](http://docs.mongodb.org/manual/_images/data-model-denormalized.png)
 
 ### Performance, availability, scalability
 
