@@ -72,6 +72,8 @@ MongoDB includes mechanisms for increasing the database's performance and availa
 SQL vs. NoSQL
 ---
 
+![NoSQL](http://student.agh.edu.pl/~mikoda/schemat.png)
+
 ### Where to NoSQL
 
 
