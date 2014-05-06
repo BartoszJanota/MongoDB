@@ -42,7 +42,13 @@ MongoDB uses a *document-oriented* approach:
   * **denormalized data model** - document embedding - documents are nested within each other
 * no structure enforcement - no *join* queries
 
+
+#### Normalized data model
+
 ![Normalized data model](http://docs.mongodb.org/manual/_images/data-model-normalized.png)
+
+#### Denormalized data model
+
 ![Denormalized data model](http://docs.mongodb.org/manual/_images/data-model-denormalized.png)
 
 ### Performance, availability, scalability
