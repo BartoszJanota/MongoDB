@@ -259,30 +259,10 @@ There are several ways for Node.js to talk to MongoDB:
 * **MongoDB node.js driver** - officially supported solution - basic operaions like in Mongo console
 * **Mongoose** - object-document mapping - a powerful library for high-level data management
 
-*TO DO*
 * download Node.js and other libs
 * install
 * run
 * like http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
-
-Implementation - example no. 1
-----
-*TO DO*
-* the first moment to complement our code - i.e. student wth a notebook bag
-* result
-
-
-Implementation - example no. 2
-----
-*TO DO*
-* another example
-* result
-
-Implementation - final example
-----
-*TO DO*
-* Final result
-* Encouregment to further development
 
 Summary
 ----
