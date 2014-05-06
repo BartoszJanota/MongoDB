@@ -54,12 +54,6 @@ MongoDB includes mechanisms for increasing the database's performance and availa
  * provides *horizontal scaling* - divides the data set across multiple servers (*shards*)
  * reduces the number of operations and data stored per shard
 
-
-*TO DO*:
-* querying,
-* map-reduce
-* etc.
-
 SQL vs. NoSQL
 ---
 
@@ -255,11 +249,15 @@ db.testCollection.find( { seniority: 3 } )
 You should see some results according to the given criteria.
 Try some more spohisticated criteria! Check more at MongoDB [find()](http://docs.mongodb.org/manual/reference/method/db.collection.find/) reference.
 
-Now you are able to create your own databases and collections. You can insert some documents and browse them, we encourage you to practise more and more. In the next section you will see how to use MongoDB according to third-party libraries such as Node.js or so.
+Now you are able to create your own databases and collections. You can insert some documents and browse them, we encourage you to practise more and more. In the next section you will see how to use MongoDB together with Node.js quickly and easily.
 
 
-Webservice configuration
+MongoDB and Node.js integration
 ----
+
+There are several ways for Node.js to talk to MongoDB:
+* **MongoDB node.js driver** - officially supported solution - basic operaions like in Mongo console
+* **Mongoose** - object-document mapping - a powerful library for high-level data management
 
 *TO DO*
 * download Node.js and other libs
