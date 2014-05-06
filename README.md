@@ -46,11 +46,17 @@ MongoDB uses a *document-oriented* approach:
 
 MongoDB includes mechanisms for increasing the database's performance and availability even in large systems. These are:
 
-1. Replication
+#### Replication
+![Replication](http://docs.mongodb.org/manual/_images/replica-set-read-write-operations-primary.png)
+
  * multiple copies of the database on different servers
  * provides data redundancy -> security
  * increases availability - read operations can be performed on any replica
-2. Sharding
+
+#### Sharding
+
+![Sharding](http://docs.mongodb.org/manual/_images/sharded-collection.png)
+
  * provides *horizontal scaling* - divides the data set across multiple servers (*shards*)
  * reduces the number of operations and data stored per shard
 
@@ -259,25 +265,59 @@ There are several ways for Node.js to talk to MongoDB:
 * **MongoDB node.js driver** - officially supported solution - basic operaions like in Mongo console
 * **Mongoose** - object-document mapping - a powerful library for high-level data management
 
-* download Node.js and other libs
-* install
-* run
-* like http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+### Node.js native driver
 
-Summary
-----
-*TO DO*
-* just a simple summary
+MongoDB Node.js driver is very simple tu use. For installation, use *npm* (assuming you have Node installed):
+```sh
+npm install mongodb
+```
 
-Knowledge source
+A simple code example (from: [MongoDB Node.js driver documentation](https://github.com/mongodb/node-mongodb-native))
+
+```javascript
+  var MongoClient = require('mongodb').MongoClient
+    , format = require('util').format;
+
+  MongoClient.connect('mongodb://127.0.0.1:27017/test', function(err, db) {
+    if(err) throw err;
+
+    var collection = db.collection('test_insert');
+    collection.insert({a:2}, function(err, docs) {
+
+      collection.count(function(err, count) {
+        console.log(format("count = %s", count));
+      });
+
+      // Locate all the entries using find
+      collection.find().toArray(function(err, results) {
+        console.dir(results);
+        // Let's close the db
+        db.close();
+      });
+    });
+  })
+```
+
+### Mongoose
+
+Installation is just as simple:
+
+```sh
+npm install mongoose
+```
+
+
+Sources
 ----
-* [MongoDB Home]
-* [CWBUECHELER] 
+* [MongoDB Home] - MongoDB documentation
+* [CWBUECHELER] - MongoDB/Node tutorial
+* [MongoDB Node.js driver documentation](https://github.com/mongodb/node-mongodb-native)
 
 License
 ----
 
 MIT - free to use :)!
+All images come from [MongoDB Home].
 
 by [Bartosz Janota](mailto:bartosz.janota@gmail.com) and [Piotr Mikoda](mailto:piotr.mikoda@gmail.com)
 
