@@ -160,7 +160,7 @@ use mynewdb
 
 Now you can check that you created a proper database by typing:
 ```sh
-sb
+db
 ```
 
 It will print your current session database context. 
