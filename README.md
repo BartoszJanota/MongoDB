@@ -263,7 +263,7 @@ MongoDB and Node.js integration
 
 There are several ways for Node.js to talk to MongoDB:
 * **MongoDB node.js driver** - officially supported solution - basic operaions like in Mongo console
-* **Mongoose** - object-document mapping - a powerful library for high-level data management
+* **Object-document mapping** libraries - provide more advanced functions, often schema-based, e.g. *Mongoose*
 
 ### Node.js native driver
 
@@ -297,15 +297,6 @@ A simple code example (from: [MongoDB Node.js driver documentation](https://gith
     });
   })
 ```
-
-### Mongoose
-
-Installation is just as simple:
-
-```sh
-npm install mongoose
-```
-
 
 Sources
 ----
