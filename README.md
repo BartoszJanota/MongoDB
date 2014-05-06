@@ -12,7 +12,7 @@ Firstly we will satisfy you with a bit of theory and then we will show you how t
 
 Experience the power and simplicity of MongoDB!
 
-Note: The entire course is included in this repository. After clone you can work locally, please follow REAMDE file :).
+Note: The entire course is included in this repository. After clone you can work locally, please follow README file :).
 
 Introduction
 ----
@@ -38,9 +38,11 @@ MongoDB uses a *document-oriented* approach:
 * data is kept in *documents*, organized in *collections*
 * collections do not enforce document structure
 * user can choose a data model that satisfies his needs best
-  * document relationships
-  * document embedding 
+  * document relationships - document contains a reference to another document
+  * document embedding - documents are nested within each other
 * no structure enforcement - no *join* queries
+
+
 
 ### Performance, availability, scalability
 
